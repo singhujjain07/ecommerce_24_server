@@ -1,0 +1,44 @@
+1. npm init
+2. install express, colors
+3. create server.js
+4. npm start/node server.js
+5. in package.js set type=module-> now we don't have to
+write const ____ instead use import
+-> require is not defined in es module
+
+6. create .env file and install dotenv
+7. create new database in mongodb atlas
+    -> add mongo url in env file
+    -> connect atlas(online) and compass(offline)
+8. create config folder
+    -> create db.js in it
+    -> npm i mongoose morgan
+    -> connect to mongodb in db.js and export to server.js
+9. create models, routes, helpers, middlewares, controllers folder
+    -> create userModel.js in models and create schema
+    -> create authRoute.js in routes
+    -> create authControllers.js in controllers and import in authRoute.js
+10. npm i bcrypt
+    -> create authHelper.js in helpers and create function to
+    hash password using bcrypt
+    -> validate name,email etc. if not registered , register in authController.js
+11. check connection and try to register a new user using Postman
+    -> method->Post, URL->http://localhost:8080/api/v1/auth/register
+    -> {"name":"test","email":"abc@gmail.com","password":"1123456","phone":"0000000000","address":"Mumbai India"}
+    -> send
+    -> success if every thing turns good
+
+12. code for login part
+    -> create loginController function in authController
+    -> create login route in authRoute and pass loginController
+    -> using postman check login 
+13. create authMiddleware.js in middlewares folder
+    -> create test route and testController
+    -> check protected route using postman
+        -> in headers add authorization(key) and jwt=token generated while login as value and click send to get response
+    -> create isAdmin function to validate whether the user is admin(role==1) or not 
+        -> pass this middleware in test route
+        -> try test route now once with role 0 and then with 1
+
+timestamp: 1:28:21 -> getting started with frontend
+
